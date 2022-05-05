@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Matheus Gatti" />
+    <meta name="description" content="Portfólio de projetos feitos por Matheus Gatti." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TÍTULO -->
+    <title>Matheus Gatti</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.png" />
+
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="icons/bootstrap-icons.css" rel="stylesheet" />
+
+    <style>
+      /* CARREGAR FONTE DO NOME */
+      @font-face {
+        font-family: "Amsterdam";
+        src: url(fontes/amsterdam-four-ttf.ttf) format("truetype");
+      }
+
+      /* MENU */
+      nav {
+        background-color: #2c3e50 !important;
+        border-bottom: 4px solid #212f3c;
+      }
+      nav ul > li {
+        background: none !important;
+        border: 0 !important;
+        padding: 0;
+        margin: 0 -10px;
+      }
+      nav ul > li > a {
+        border-radius: 50%;
+        padding: 10px;
+        transition: 0.5s;
+      }
+      nav ul > li > a:hover {
+        background: #212f3c !important;
+      }
+
+      /* APRESENTAÇÃO */
+      section.apresentacao {
+        background: #4d96ff;
+        border-bottom: 4px solid #e5e5e5;
+      }
+      section.apresentacao .foto > img {
+        height: 250px;
+        border-radius: 50%;
+        animation: animacaoFotoPerfil 3s infinite;
+      }
+      section.apresentacao .texto > h4 {
+        font-weight: 100;
+        font-size: 18px;
+      }
+      section.apresentacao .texto > h1 {
+        font-family: "Amsterdam" !important;
+      }
+      section.apresentacao .texto > p {
+        font-weight: 300;
+      }
+      section.apresentacao .texto .btn-contato {
+        background: #367ada;
+        border-color: #367ada;
+        transition: 0.5s;
+        font-weight: 300;
+      }
+      section.apresentacao .texto .btn-contato:hover {
+        background: #2c70cf;
+        border-color: #2c70cf;
+        transform: scale(1.01);
+      }
+
+      /* HABILIDADES */
+      section.habilidades {
+        color: #2c3e50;
+      }
+      section.habilidades .titulo h1 {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      section.habilidades .titulo small {
+        font-weight: 300;
+      }
+      section.habilidades .card {
+        border-bottom: 4px solid #e5e5e5;
+        transition: 0.5s;
+      }
+      section.habilidades .card:hover {
+        transform: scale(1.01);
+      }
+      section.habilidades .card .icone {
+        margin-top: -35px;
+        border-radius: 50%;
+        background: #4d96ff;
+        height: 80px;
+        width: 80px;
+        left: 50%;
+        margin-left: -40px;
+        color: white;
+      }
+      section.habilidades .card .icone i {
+        font-size: 2rem;
+        line-height: 80px;
+      }
+      section.habilidades .card .card-body .card-title {
+        margin-top: 50px;
+        font-weight: 600;
+      }
+      section.habilidades .card .card-body ul {
+        padding: 0px 10px;
+      }
+      section.habilidades .card .card-body ul > li {
+        border: 0;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      section.habilidades .card .card-body ul > li > i {
+        color: #4d96ff;
+      }
+
+      /* PROJETOS */
+      section.projetos {
+        color: #fff;
+        background: #4d96ff;
+        border-bottom: 4px solid #e5e5e5;
+      }
+      section.projetos .titulo h1 {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      section.projetos .titulo small {
+        font-weight: 300;
+      }
+      section.projetos .rounded-5 {
+        border-radius: 1rem;
+      }
+      section.projetos .card {
+        transition: 0.5s;
+      }
+      section.projetos .card:hover {
+        transform: translateY(-8px);
+      }
+      section.projetos .card-cover {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover !important;
+        background-color: transparent !important;
+        border: 0;
+      }
+      section.projetos .btn-primary {
+        background: #367ada;
+        border-color: #367ada;
+        transition: 0.5s;
+      }
+      section.projetos .btn-primary:hover {
+        background: #2c70cf;
+        border-color: #2c70cf;
+        transform: scale(1.01);
+      }
+      section.projetos .linguagem small {
+        background: #2c3e50;
+        padding: 5px 10px;
+        font-size: 10px;
+        border-radius: 4px;
+      }
+
+      /* CONTATO */
+      section.contato {
+        color: #2c3e50;
+      }
+      section.contato .titulo h1 {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      section.contato .titulo small {
+        font-weight: 300;
+      }
+      section.contato .btn-primary {
+        background: #367ada;
+        border-color: #367ada;
+        transition: 0.5s;
+      }
+      section.contato .btn-primary:hover {
+        background: #2c70cf;
+        border-color: #2c70cf;
+        transform: scale(1.05);
+      }
+      section.contato a.email {
+        color: #367ada;
+        text-decoration: none;
+      }
+
+      /* FOOTER */
+      footer {
+        background-color: #2c3e50;
+        color: #9197a0;
+      }
+      footer i {
+        color: #ff7171 !important;
+      }
+
+      /* ANIMAÇÃO FOTO DE PERFIL */
+      @keyframes animacaoFotoPerfil {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENU -->
+    <nav class="navbar navbar-light">
+      <div class="container-fluid text-center justify-content-center">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item">
+            <a href="https://www.linkedin.com/in/gattimatheus/" target="_blank"><i class="bi bi-linkedin text-white"></i></a>
+          </li>
+          <li class="list-group-item">
+            <a href="https://www.instagram.com/matheusgaatti/" target="_blank"><i class="bi bi-instagram text-white"></i></a>
+          </li>
+          <li class="list-group-item">
+            <a href="https://github.com/MatheusGatti" target="_blank"><i class="bi bi-github text-white"></i></a>
+          </li>
+          <li class="list-group-item">
+            <a href="mailto:matheusfgatti@gmail.com" target="_blank"><i class="bi bi-google text-white"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- APRESENTAÇÃO -->
+    <section class="apresentacao text-white text-center justify-content-center">
+      <div class="container">
+        <div class="row p-5">
+          <div class="col-12 col-lg-4 text-lg-end foto">
+            <img src="images/profile.jpg" />
+          </div>
+          <div class="col ps-lg-5 pt-3 pt-lg-0 text-lg-start texto">
+            <h4>Opa, eu sou o</h4>
+            <h1 class="mt-4">Matheus Gatti</h1>
+            <p class="mt-lg-5 mt-4">
+              E sou apaixonado por programação, principalmente por Python. Comecei pelo bloco de notas com HTML sem formatação nenhuma num computador de tubo e hoje estou cursando Análise e
+              Desenvolvimento de Sistemas depois de um longo aprendizado em diversas tecnologias.
+            </p>
+            <a href="#contato" class="btn btn-primary btn-contato d-block btn-sm" role="button"><i class="bi bi-chat-dots me-2"></i>Entrar em contato</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="habilidades text-center">
+      <div class="container py-5">
+        <div class="row titulo">
+          <div class="col-12 col-md-6 mx-auto">
+            <h1>Habilidades</h1>
+            <small>Aqui estão todas as minhas habilidades e conhecimentos desenvolvidos ao longo dos anos aprendendo, fuçando e botando a mão na massa.</small>
+          </div>
+        </div>
+        <div class="row py-5 mt-2">
+          <div class="col-12 col-md-4">
+            <div class="card">
+              <div class="icone d-inline-block position-absolute">
+                <i class="bi bi-display"></i>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Frontend</h5>
+                <ul class="list-group text-start">
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>HTML</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>CSS</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Javascript</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Bootstrap</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mt-5 mt-md-0">
+            <div class="card">
+              <div class="icone d-inline-block position-absolute">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Backend</h5>
+                <ul class="list-group text-start">
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Python</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>PHP</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Flask</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>MySQL/SQLite</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mt-5 mt-md-0">
+            <div class="card">
+              <div class="icone d-inline-block position-absolute">
+                <i class="bi bi-tools"></i>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Outros</h5>
+                <ul class="list-group text-start">
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Photoshop</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Social Media</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>E-commerce</li>
+                  <li class="list-group-item"><i class="bi bi-check-circle-fill me-1"></i>Tráfego Pago</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="projetos">
+      <div class="container py-5">
+        <div class="row titulo">
+          <div class="col-12 col-md-6 text-center mx-auto">
+            <h1>Projetos</h1>
+            <small>Aqui você encontrará alguns dos meus projetos.</small>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-xl-2 align-items-stretch g-4 py-5">
+          <div class="col">
+            <div
+              class="card card-cover h-100 overflow-hidden text-white rounded-5 shadow-lg"
+              style="background: linear-gradient(to top, #2c3e50, #4d97ffb4), url(images/projetos/projeto-1.jpg) no-repeat center center"
+            >
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Copiador de apostas</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <a href="https://github.com/MatheusGatti/Copiador-De-Entradas" target="_blank" class="btn btn-primary btn-sm btn-ver-mais"><i class="bi bi-github me-2"></i>Ver mais</a>
+                  </li>
+                  <li class="linguagem d-flex align-items-center">
+                    <small>Python</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card card-cover h-100 overflow-hidden text-white rounded-5 shadow-lg"
+              style="background: linear-gradient(to top, #2c3e50, #4d97ffb4), url(images/projetos/projeto-2.jpg) no-repeat center center"
+            >
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Catálogo digital</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <a href="https://github.com/MatheusGatti/catalogo-digital-whatsapp" target="_blank" class="btn btn-primary btn-sm btn-ver-mais"><i class="bi bi-github me-2"></i>Ver mais</a>
+                  </li>
+                  <li class="linguagem d-flex align-items-center me-1">
+                    <small>HTML</small>
+                  </li>
+                  <li class="linguagem d-flex align-items-center me-1">
+                    <small>CSS</small>
+                  </li>
+                  <li class="linguagem d-flex align-items-center me-1">
+                    <small>Javascript</small>
+                  </li>
+                  <li class="linguagem d-flex align-items-center me-1">
+                    <small>PHP</small>
+                  </li>
+                  <li class="linguagem d-flex align-items-center">
+                    <small>MySQL</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card card-cover h-100 overflow-hidden text-white rounded-5 shadow-lg"
+              style="background: linear-gradient(to top, #2c3e50, #4d97ffb4), url(images/projetos/projeto-3.jpg) no-repeat center center"
+            >
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Crawler de jogos de futebol</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <a href="https://github.com/MatheusGatti/Soccer-Corners-Crawler-and-Bot" target="_blank" class="btn btn-primary btn-sm btn-ver-mais"><i class="bi bi-github me-2"></i>Ver mais</a>
+                  </li>
+                  <li class="linguagem d-flex align-items-center me-1">
+                    <small>Node.js</small>
+                  </li>
+                  <li class="linguagem d-flex align-items-center">
+                    <small>SQLite</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card card-cover h-100 overflow-hidden text-white rounded-5 shadow-lg"
+              style="background: linear-gradient(to top, #2c3e50, #4d97ffb4), url(images/projetos/projeto-4.jpg) no-repeat center center"
+            >
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Disparo de mensagens em massa no WhatsApp</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <a href="https://github.com/MatheusGatti/WhatsApp-Sender" target="_blank" class="btn btn-primary btn-sm"><i class="bi bi-github me-2"></i>Ver mais</a>
+                  </li>
+                  <li class="linguagem d-flex align-items-center me-1">
+                    <small>Python</small>
+                  </li>
+                  <li class="linguagem d-flex align-items-center">
+                    <small>Selenium</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 mx-auto">
+            <a href="https://github.com/MatheusGatti" target="_blank" class="btn btn-primary d-block" role="button"><i class="bi bi-github me-2"></i>Ver todos os projetos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+      <div class="container py-5">
+        <div class="row titulo">
+          <div class="col-12 col-md-6 text-center mx-auto">
+            <h1>Contato</h1>
+            <small
+              >Interessado em conversar comigo? É só entrar em contato em algumas dessas redes sociais ou pelo meu e-mail
+              <a class="email" href="mailto:matheusfgatti@gmail.com">matheusfgatti@gmail.com</a>.</small
+            >
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col-12 col-md-6 text-center mx-auto">
+            <div class="btn-group" role="group">
+              <a href="https://www.linkedin.com/in/gattimatheus/" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
+              <a href="https://www.instagram.com/matheusgaatti/" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="bi bi-instagram me-2"></i>Instagram</a>
+              <a href="https://github.com/MatheusGatti" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="bi bi-github me-2"></i>GitHub</a>
+              <a href="mailto:matheusfgatti@gmail.com" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="bi bi-google me-2"></i>Gmail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid text-center py-2">
+      <div class="row">
+        <div class="col-12">
+          <small>Feito com <i class="bi bi-heart-fill m-1"></i> por Matheus Gatti</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
